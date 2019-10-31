@@ -9,7 +9,6 @@ from tkinter.ttk import Combobox
 class GuiInterface:
     master = tkinter.Tk()
     canvas = tkinter.Canvas(master, bg='white', width=500, height=500)
-    config = open('config.txt', "r+").read().splitlines()
 
     def __init__(self, SourceReader):
         self.canvas.pack(side='bottom', fill='x', expand='yes')
@@ -33,22 +32,14 @@ class GuiInterface:
         self.master.selectDrawer.pack(side='left', fill='both', expand='yes')
 
         self.master.comboDrawer = Combobox(self.master, values=["DrawerJack", "DrawerKieran", "DrawerTurtleJack"])
-        self.master.comboDrawer.set(self.config[0])
+        # self.master.comboDrawer.set(self.config[0])
         self.master.comboDrawer.pack(side='left', fill='both', expand='yes')
 
         self.master.selectParser = tkinter.Label(self.master, text="Select Parser")
         self.master.selectParser.pack(side='left', fill='both', expand='yes')
 
-        self.master.comboParser = Combobox(self.master, values=["ParserKC", "ParserJerry", "ParserJonathanV2"])
-        self.master.comboParser.set(self.config[1])
-        self.master.comboParser.pack(side='left', fill='both', expand='yes')
-
         self.master.selectInterface = tkinter.Label(self.master, text="Select Interface")
         self.master.selectInterface.pack(side='left', fill='both', expand='yes')
-
-        self.master.comboInterface = Combobox(self.master, values=["FrontEndJerry", "FrontEndKieran"])
-        self.master.comboInterface.set(self.config[2])
-        self.master.comboInterface.pack(side='left', fill='both', expand='yes')
 
         self.master.close_btn = Button(self.master, text='Restart', command=self.restart_program)
         self.master.close_btn.pack(side='left', fill='both', expand='yes')
