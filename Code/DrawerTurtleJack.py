@@ -3,16 +3,11 @@
 import turtle
 import MyEnums
 from TIGr import AbstractDrawer
-
+from FrontEndJerry import GuiInterface
 
 class Drawer(AbstractDrawer):
-    config = open('config.txt', "r+").read().splitlines()
-    if config[2] == 'FrontEndKieran':
-        from FrontEndKieran import TkinterInterface
-        this_canvas = TkinterInterface.canvas
-    elif config[2] == 'FrontEndJerry':
-        from FrontEndJerry import GuiInterface
-        this_canvas = GuiInterface.canvas
+
+    this_canvas = GuiInterface.canvas
 
     def __init__(self, ):
         self.test_string = ''
@@ -52,3 +47,6 @@ class Drawer(AbstractDrawer):
         self.cursor.setheading(direction + 90)
         self.cursor.forward(distance)
         print(f'drawing line of length {distance} at {direction} degrees')
+
+    def clone(self):
+        pass

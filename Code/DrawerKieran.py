@@ -1,22 +1,13 @@
 # created by Kieran Jerry Jonathon
 import math
-
 import MyEnums
 from TIGr import AbstractDrawer
-
+from FrontEndJerry import GuiInterface
 
 class Drawer(AbstractDrawer):
-    x_pos = 00
+    x_pos = 0
     y_pos = 0
-    config = open('config.txt', "r+")
-    c = config.read().splitlines()
-    if c[2] == 'FrontEndKieran':
-        from FrontEndKieran import TkinterInterface
-        this_canvas = TkinterInterface.canvas
-    elif c[2] == 'FrontEndJerry':
-        from FrontEndJerry import GuiInterface
-        this_canvas = GuiInterface.canvas
-    config.close()
+    this_canvas = GuiInterface.canvas
 
     def __init__(self):
         self.test_string = ''
@@ -57,3 +48,6 @@ class Drawer(AbstractDrawer):
                                          fill=self.colour)
             self.x_pos += new_x
             self.y_pos += new_y
+
+    def clone(self):
+        pass
