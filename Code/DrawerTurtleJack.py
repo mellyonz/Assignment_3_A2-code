@@ -1,13 +1,12 @@
 # Works by KC and Jack
 import turtle
 import MyEnums
-from TIGr import AbstractDrawer
-from FrontEndJerry import GuiInterface
+from Drawer import Drawer
 
 
-class Drawer(AbstractDrawer):
+class Drawer(Drawer):
     def __init__(self):
-        self.this_canvas = GuiInterface.canvas
+        super().__init__()
         self.cursor = turtle.RawPen(self.this_canvas)
         self.cursor.speed(1)
 

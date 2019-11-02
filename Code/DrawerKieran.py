@@ -1,17 +1,17 @@
 # created by Kieran Jerry Jonathon
 import math
 import MyEnums
-from TIGr import AbstractDrawer
-from FrontEndJerry import GuiInterface
+from Drawer import Drawer
 
 
-class Drawer(AbstractDrawer):
+class Drawer(Drawer):
     def __init__(self):
+        super().__init__()
         self.x_pos = 0
         self.y_pos = 0
         self.colour = ''
         self.can_draw = False
-        self.this_canvas = GuiInterface.canvas
+
 
     def select_pen(self, pen_num):
         self.colour = MyEnums.Pen.colours[pen_num]

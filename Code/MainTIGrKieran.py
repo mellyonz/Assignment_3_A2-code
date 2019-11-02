@@ -2,6 +2,7 @@
 from TIGr import AbstractInterface
 from ParserJonathanV2 import Parser
 from FrontEndJerry import GuiInterface
+from Drawer import Drawer
 
 
 class Interface(AbstractInterface):
@@ -18,9 +19,5 @@ class Interface(AbstractInterface):
 
 
 if __name__ == '__main__':
-    from DrawerKieran import Drawer
-
-    from DrawerTurtleJack import Drawer
-
     main = Interface(Parser(Drawer()))
     main.go()

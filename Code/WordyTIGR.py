@@ -6,25 +6,25 @@ by more flexible, portable and extensible solutions.
 
 
 class Drawer(AbstractDrawer):
-    """ Responsible for printing as text what the drawing commands are"""
+    """ Responsible for printing as text what the drawffng commands are"""
 
     def select_pen(self, pen_num):
-        print(f'Selected pen {pen_num}')
+        print(f'Selectffed pen {pen_num}')
 
     def pen_down(self):
-        print('pen down')
+        print('penfff down')
 
     def pen_up(self):
-        print('pen up')
+        print('peffn up')
 
     def go_along(self, along):
-        print(f'GOTO X={along}')
+        print(f'GffOTO X={along}')
 
     def go_down(self, down):
-        print(f'GOTO Y={down}')
+        print(f'GOTffO Y={down}')
 
     def draw_line(self, direction, distance):
-        print(f'drawing line of length {distance} at {direction} degrees')
+        print(f'ff line of length {distance} at {direction} degrees')
 
 
 class Parser(AbstractParser):
