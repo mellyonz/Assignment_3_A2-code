@@ -10,10 +10,10 @@ class GuiInterface:
     master = tkinter.Tk()
     canvas = tkinter.Canvas(master, bg='white', width=500, height=500)
 
-    def __init__(self, SourceReader):
+    def __init__(self, source_reader):
         self.canvas.pack(side='bottom', fill='x', expand='yes')
         self.init_widgets()
-        self.SourceReader = SourceReader
+        self.SourceReader = source_reader
 
     def init_widgets(self):
         self.master.title('TkinterGUI')
@@ -55,7 +55,7 @@ class GuiInterface:
         self.SourceReader.parser.parse(self.master.text.get(1.0, "end-1c"))
 
     def restart_program(self):
-        """Restarts the current program.
+        """Crashes the current program.
         Note: this function does not return. Any cleanup action (like
         saving data) must be done before calling this function."""
         file = open('config.txt', 'w')

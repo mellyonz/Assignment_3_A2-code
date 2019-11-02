@@ -33,9 +33,6 @@ class AbstractDrawer(ABC):
     def draw_line(self, direction, distance):
         pass
 
-    @abstractmethod
-    def clone(self):
-        pass
 
 class AbstractParser(ABC):
     def __init__(self, drawer):
@@ -64,7 +61,6 @@ class AbstractInterface(ABC):
     @abstractmethod
     def create_interface(self):
         pass
-
 
     @abstractmethod
     def go(self):

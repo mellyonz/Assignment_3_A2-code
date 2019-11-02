@@ -6,7 +6,7 @@ import re
 class Parser(AbstractParser):
     def __init__(self, drawer):
         super().__init__(drawer)
-        self.commandlist = {
+        self.command_list = {
             "P": "self.drawer.select_pen(self.data)",
             "D": "self.drawer.pen_down()",
             "N": "self.drawer.draw_line(0, self.data)",
@@ -34,7 +34,7 @@ class Parser(AbstractParser):
             # If command from input in the look table
             try:
                 # Basically import the command and in the process it add the data.
-                parsed_command = self.commandlist[self.command[0]]
+                parsed_command = self.command_list[self.command[0]]
                 exec(parsed_command)
             except ValueError as e:
                 print(f'{e}: Value outside boundary')

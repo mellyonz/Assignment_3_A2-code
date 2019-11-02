@@ -3,6 +3,7 @@ from TIGr import AbstractInterface
 from ParserJonathanV2 import Parser
 from FrontEndJerry import GuiInterface
 
+
 class Interface(AbstractInterface):
 
     def __init__(self, parser):
@@ -11,7 +12,6 @@ class Interface(AbstractInterface):
     def create_interface(self):
         self.interface = GuiInterface(self)
         self.interface.start()
-
 
     def go(self):
         self.create_interface()

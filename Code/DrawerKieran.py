@@ -4,15 +4,14 @@ import MyEnums
 from TIGr import AbstractDrawer
 from FrontEndJerry import GuiInterface
 
-class Drawer(AbstractDrawer):
-    x_pos = 0
-    y_pos = 0
-    this_canvas = GuiInterface.canvas
 
+class Drawer(AbstractDrawer):
     def __init__(self):
-        self.test_string = ''
+        self.x_pos = 0
+        self.y_pos = 0
         self.colour = ''
         self.can_draw = False
+        self.this_canvas = GuiInterface.canvas
 
     def select_pen(self, pen_num):
         self.colour = MyEnums.Pen.colours[pen_num]
@@ -48,6 +47,3 @@ class Drawer(AbstractDrawer):
                                          fill=self.colour)
             self.x_pos += new_x
             self.y_pos += new_y
-
-    def clone(self):
-        pass
