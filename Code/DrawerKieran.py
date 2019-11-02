@@ -1,17 +1,20 @@
 # created by Kieran Jerry Jonathon
 import math
+import turtle
+
 import MyEnums
 from Drawer import Drawer
 
 
-class Drawer(Drawer):
+class DrawerProductTKinter(Drawer):
     def __init__(self):
         super().__init__()
         self.x_pos = 0
         self.y_pos = 0
         self.colour = ''
+        self.cursor = turtle.RawPen(self.this_canvas)
+        self.cursor.speed(1)
         self.can_draw = False
-
 
     def select_pen(self, pen_num):
         self.colour = MyEnums.Pen.colours[pen_num]
@@ -26,12 +29,14 @@ class Drawer(Drawer):
         print('pen up')
 
     def go_along(self, along):
+        self.x_pos = 0
         self.x_pos = along
         print(f'GOTO X={along}')
 
     def go_down(self, down):
-        self.y_pos = down
-        print(f'GOTO X={down}')
+        self.y_pos = 0
+        self.y_pos = down - 200
+        print(f'GOTO Y={down}')
 
     def draw_line(self, direction, distance):
         if self.can_draw:
@@ -43,7 +48,7 @@ class Drawer(Drawer):
             direction = (math.pi * 2) / (360 / direction)
             new_x = distance * math.sin(direction)
             new_y = -distance * math.cos(direction)
-            self.this_canvas.create_line(self.x_pos, self.y_pos, self.x_pos + new_x, self.y_pos + new_y,
+            self.this_canvas.create_line(self.x_pos, self.y_pos, self.x_pos - new_x, self.y_pos - new_y,
                                          fill=self.colour)
-            self.x_pos += new_x
-            self.y_pos += new_y
+            self.x_pos -= new_x
+            self.y_pos -= new_y

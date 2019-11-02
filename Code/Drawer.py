@@ -1,10 +1,7 @@
-# created by Kieran Jerry Jonathon
-import math
 from abc import ABC
 
-import MyEnums
-from TIGr import AbstractDrawer
 from FrontEndJerry import GuiInterface
+from TIGr import AbstractDrawer
 
 
 class Drawer(AbstractDrawer, ABC):
@@ -24,7 +21,7 @@ class Drawer(AbstractDrawer, ABC):
         print(f'GOTO X={along}')
 
     def go_down(self, down):
-        print(f'GOTO X={down}')
+        print(f'GOTO Y={down}')
 
     def draw_line(self, direction, distance):
         print(f'drawing line of length {distance} at {direction} degrees')

@@ -10,9 +10,9 @@ class Parser(AbstractParser):
             "P": "self.drawer.select_pen(self.data)",
             "D": "self.drawer.pen_down()",
             "N": "self.drawer.draw_line(0, self.data)",
-            "E": "self.drawer.draw_line(90, self.data)",
+            "W": "self.drawer.draw_line(90, self.data)",
             "S": "self.drawer.draw_line(180, self.data)",
-            "W": "self.drawer.draw_line(270, self.data)",
+            "E": "self.drawer.draw_line(270, self.data)",
             "X": "self.drawer.go_along(self.data)",
             "Y": "self.drawer.go_down(self.data)",
             "U": "self.drawer.pen_up()"
