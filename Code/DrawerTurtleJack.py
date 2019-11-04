@@ -1,13 +1,12 @@
 # Works by KC and Jack
 import turtle
 import MyEnums
-from TIGr import AbstractDrawer
-from FrontEndJerry import GuiInterface
+from Drawer import Strategy
 
 
-class Drawer(AbstractDrawer):
+class DrawerStrategyTurtle(Strategy):
     def __init__(self):
-        self.this_canvas = GuiInterface.canvas
+        super().__init__()
         self.cursor = turtle.RawPen(self.this_canvas)
         self.cursor.speed(1)
 
@@ -25,13 +24,13 @@ class Drawer(AbstractDrawer):
 
     def go_along(self, along):
         self.pen_up()
-        self.cursor.setx(along - 250)
+        self.cursor.setx(along)
         print(f'GOTO X={along}')
 
     def go_down(self, down):
         self.pen_up()
-        self.cursor.sety(down - 250)
-        print(f'GOTO X={down}')
+        self.cursor.sety(down)
+        print(f'GOTO Y={down}')
 
     def draw_line(self, direction, distance):
         self.cursor.setheading(direction + 90)
