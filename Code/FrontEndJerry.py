@@ -4,7 +4,6 @@ import tkinter
 from tkinter import *
 from tkinter import filedialog
 from tkinter.ttk import Combobox
-import Creator
 
 
 class GuiInterface:
@@ -21,9 +20,11 @@ class GuiInterface:
         self.master.title('TkinterGUI')
         width = 1200
         height = 600
+
         screenwidth = self.master.winfo_screenwidth()
         screenheight = self.master.winfo_screenheight()
         center = '%dx%d+%d+%d' % (width, height, (screenwidth - 800) / 2, (screenheight - height) / 2)
+
         self.master.geometry(center)
         self.master.draw_btn = Button(self.master, text='Draw', command=self.draw)
         self.master.draw_btn.pack(side='left', fill='both', expand='yes')
@@ -50,7 +51,16 @@ class GuiInterface:
         self.SourceReader.parser.parse(self.master.text.get(1.0, "end-1c"))
 
     def restart_model(self):
-        self.SourceReader = Creator.DrawerCreator.source_reader_update(self.master.comboDrawer.get())
+        global drawer_creator
+        from Code.DrawerCreatorTKinter import DrawerCreatorTKinter
+        from Code.DrawerCreatorTurtle import DrawerCreatorTurtle
+
+        if self.master.comboDrawer.get() == "DrawerKieran":
+            drawer_creator = DrawerCreatorTKinter()
+        if self.master.comboDrawer.get() == "DrawerTurtleJack":
+            drawer_creator = DrawerCreatorTurtle()
+
+        self.SourceReader = drawer_creator.source_reader_update()
 
     def insert_text(self, row_source):
         self.master.text.insert('0.0', row_source)
